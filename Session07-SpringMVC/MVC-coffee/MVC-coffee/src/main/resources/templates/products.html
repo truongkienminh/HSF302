@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thyleaf.org"> <!-- giúp đọc được file html trong controller -->
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Products</title>
+</head>
+<body>
+<h1>The list of coffee : Products</h1>
+<h2 th:text="${msg}">products</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="x : ${products}">
+        <td th:text="${x.id}"></td>
+        <td th:text="${x.name}"></td>
+        <td th:text="${x.price}"></td>
+        <td>
+            <a th:href="@{'/products/' + ${x.id}}">View</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
